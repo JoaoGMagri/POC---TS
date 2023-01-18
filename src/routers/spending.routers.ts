@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { getSpending, postSpending } from "../controllers/spending.controllers.js";
+import { spendingFunc } from "../controllers/spending.controllers.js";
 
 const router = Router();
 
-router.get("/spendings", getSpending)
-router.post("/spendings", postSpending)
+router.get("/spendings", spendingFunc.getSpending)
+router.post("/spendings", spendingFunc.postSpending)
+router.put("/spendings/:id", spendingFunc.putSpending)
+router.delete("/spendings/:id", spendingFunc.deleteSpending)
 
 export default router;
 
