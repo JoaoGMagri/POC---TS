@@ -14,6 +14,17 @@ async function getSpending(req: Request, res: Response){
         res.sendStatus(500);
     }
 }
+async function getSpendingPrice(req: Request, res: Response){
+    const price: number = Number(req.params.price);
+
+    try {
+        const obj = await spendingQuery.priceSpending(price);
+        res.send(obj.rows);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+}
 async function postSpending(req: Request, res: Response){
     const obj: Spending = req.body;
 
@@ -67,6 +78,7 @@ async function deleteSpending(req: Request, res: Response){
 
 export const spendingFunc = {
     getSpending,
+    getSpendingPrice,
     postSpending,
     putSpending,
     deleteSpending,

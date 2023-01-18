@@ -17,7 +17,13 @@ async function oneSpending(id: number): Promise<QueryResult<SpendingEntity>> {
         `,[id]
     )
 }
-
+async function priceSpending(price: number): Promise<QueryResult<SpendingEntity>> {
+    return connection.query(
+        `
+            SELECT * FROM spending WHERE price <= $1;
+        `,[price]
+    )
+}
 async function newSpending(obj: Spending): Promise<void> {
     connection.query(
         `
@@ -55,6 +61,7 @@ async function deleteSpending(id: number): Promise<void> {
 export const spendingQuery = {
     allSpending,
     oneSpending,
+    priceSpending,
     newSpending,
     updateSpending,
     deleteSpending,
