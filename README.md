@@ -77,7 +77,7 @@ O projeto foi pensado para treinar os aprendizados da semana em TypeScript
 
 4. Editar gasto:
 
-    Route post: ```"/spendings/:id"```
+    Route put: ```"/spendings/:id"```
     
     Desrição: Editar um gasto criado.
 
@@ -92,6 +92,6 @@ O projeto foi pensado para treinar os aprendizados da semana em TypeScript
 
 5. Deletar gasto:
 
-    Route post: ```"/spendings/:id"```
+    Route delete: ```"/spendings/:id"```
     
     Desrição: Deletar um gasto criado.
